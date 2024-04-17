@@ -1,6 +1,6 @@
 import {LitElement, html, css} from 'lit';
 import { PokeApiDm } from '../../components/dm/pokeApiDm';
-import { ListComponent } from '../../components/ui/listComponent';
+import { ListComponent } from '../../components/ui/listComponent/listComponent';
 export class PokeListPage extends LitElement {
   static get styles() {
     return css`
@@ -45,7 +45,7 @@ export class PokeListPage extends LitElement {
 
     return html`
       <div>
-        <h2>Información:</h2>
+        <h2>PokeDex</h2>
         ${items}
       </div>
     `;

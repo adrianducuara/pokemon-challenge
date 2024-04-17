@@ -1,8 +1,8 @@
 import {LitElement, html, css} from 'lit';
 import { PokeApiDm } from '../../components/dm/pokeApiDm';
-import { DetailComponent } from '../../components/ui/detailComponent/detailComponent';
+import  { FormComponent } from  '../../components/ui/formComponent/formComponent';
 
-export class PokeDetailPage extends LitElement {
+export class PokeEditPage extends LitElement {
   static get styles() {
     return css`
       
@@ -34,7 +34,6 @@ export class PokeDetailPage extends LitElement {
         @request-failure='${this.pokeDataFailure}'
       ></pokeapi-dm>
       ${this.renderData()}
-      <a href='edit.html?name=${this.name}'>Editar Pokemon</a>
     `;
   }
 
@@ -46,10 +45,10 @@ export class PokeDetailPage extends LitElement {
 
     return html`
         ${this.data[0].evolutions.map(pokemon => html`
-        <detail-component imageUrl='/assets/img/bola-pokemon.png'>
+        <form-component imageUrl='/assets/img/bola-pokemon.png'>
             <p slot='name'>${pokemon.name}</p>
             <p slot='type'>${pokemon.type}</p>
-        </detail-component>
+        </form-component>
     `)}`
 
   }
@@ -63,4 +62,4 @@ export class PokeDetailPage extends LitElement {
   }
 }
 
-window.customElements.define('pokedetail-page', PokeDetailPage);
+window.customElements.define('pokedetail-page', PokeEditPage);
