@@ -1,5 +1,5 @@
 import {css} from 'lit';
-export const formComponentStyle = css`{
+export const formComponentStyle = css`
     *, *:before, *:after {
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
@@ -115,5 +115,4 @@ export const formComponentStyle = css`{
             max-width: 480px;
         }
     };
-
-}`
+`

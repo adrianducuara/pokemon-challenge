@@ -1,13 +1,11 @@
-import {LitElement, html, css} from 'lit';
-import { PokeApiDm } from '../../components/dm/pokeApiDm';
-import  { FormComponent } from  '../../components/ui/formComponent/formComponent';
-
+import {LitElement, html} from 'lit';
+import '../../components/dm/pokeApiDm';
+import '../../components/ui/formComponent/formComponent';
+import { pokelistPageStyle } from './pokeEdit-style-page';
 export class PokeEditPage extends LitElement {
-  static get styles() {
-    return css`
-      
-    `;
-  }
+  static styles = [
+    pokelistPageStyle,
+  ]
 
   static get properties() {
     return {

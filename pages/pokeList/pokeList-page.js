@@ -1,54 +1,49 @@
 import {LitElement, html, css} from 'lit';
-import { PokeApiDm } from '../../components/dm/pokeApiDm';
-import { ListComponent } from '../../components/ui/listComponent/listComponent';
+import '../../components/dm/pokeApiDm';
+import '../../components/ui/listComponent/listComponent';
+import '../../components/ui/headerComponent/headerComponent';
 export class PokeListPage extends LitElement {
   static get styles() {
     return css`
-      
+      .container-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 100px;
+      }
     `;
   }
 
   static get properties() {
     return {
-      data: { type: Object } // Define la propiedad data como un objeto
+      data: { type: Array } // Define la propiedad data como un objeto
     };
   }
 
   constructor() {
     super();
-    this.data = {};
+    this.data = [];
   }
 
   render() {
     return html`
+      <header-component title='PokeDex'></header-component>
       <pokeapi-dm id='pokeapiDm' host='http://localhost:3002' api='pokemon'
         @request-success='${this.pokeDataSuccess}'
         @request-failure='${this.pokeDataFailure}'
       ></pokeapi-dm>
-      ${this.renderData()} <!-- Renderiza los datos -->
+      ${this.renderData}
     `;
   }
 
-  renderData() {
-    // Verifica si hay datos para mostrar
-    if(Object.keys(this.data).length === 0) {
-      return html`<div>No tenemos pokemones disponibles</div>`
-    }
-
-    const items = Object.entries(this.data).map(([key, value]) => html`
-      <a href='detail.html?name=${value.name}'>
-        <list-component imageUrl='/assets/img/bola-pokemon.png'>
-          <p slot='name'>${value.name}</p>
-        </list-component>
-      </a>
+  get renderData() {
+    return this.data.map(poke => html`
+        <a href='detail.html?name=${poke.name}'>
+          <list-component imageUrl='/assets/img/bola-pokemon.png'>
+            <p slot='name'>${poke.name}</p>
+          </list-component>
+        </a>
     `);
-
-    return html`
-      <div>
-        <h2>PokeDex</h2>
-        ${items}
-      </div>
-    `;
   }
 
   pokeDataSuccess(evt) {
