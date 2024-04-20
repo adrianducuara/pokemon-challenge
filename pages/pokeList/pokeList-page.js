@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit';
 import '../../components/dm/pokeApiDm';
-import '../../components/ui/listComponent/listComponent';
 import '../../components/ui/headerComponent/headerComponent';
+import '../../components/ui/cardComponent/cardComponent';
 export class PokeListPage extends LitElement {
   static get styles() {
     return css`
@@ -32,16 +32,18 @@ export class PokeListPage extends LitElement {
         @request-success='${this.pokeDataSuccess}'
         @request-failure='${this.pokeDataFailure}'
       ></pokeapi-dm>
-      ${this.renderData}
+      <section class='container-items'>
+        ${this.renderData}
+      </section>
     `;
   }
 
   get renderData() {
     return this.data.map(poke => html`
         <a href='detail.html?name=${poke.name}'>
-          <list-component imageUrl='/assets/img/bola-pokemon.png'>
+          <card-component altText='Pokemon photo' imgUrl='/assets/img/bola-pokemon.png'>
             <p slot='name'>${poke.name}</p>
-          </list-component>
+          </card-component>
         </a>
     `);
   }
