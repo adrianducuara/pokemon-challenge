@@ -1,6 +1,5 @@
-import {LitElement, html, css} from 'lit';
-import { PokeApiDm } from '../../components/dm/pokeApiDm';
-import { DetailComponent } from '../../components/ui/detailComponent/detailComponent';
+import { LitElement, html, css } from 'lit';
+import '../../components/ui/detailComponent/detailComponent';
 
 export class PokeDetailPage extends LitElement {
   static get styles() {
@@ -41,7 +40,7 @@ export class PokeDetailPage extends LitElement {
   renderData() {
     // Verifica si hay datos para mostrar
     if(Object.keys(this.data).length === 0) {
-      return html`<div>No tenemos pokemones disponibles</div>`
+      return html`<div>No hay evoluciones disponibles</div>`
     }
 
     return html`
@@ -63,4 +62,4 @@ export class PokeDetailPage extends LitElement {
   }
 }
 
-window.customElements.define('pokedetail-page', PokeDetailPage);
+window.customElements.define('pokeevolution-page', PokeDetailPage);

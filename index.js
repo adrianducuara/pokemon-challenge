@@ -1,3 +1,3 @@
 import './components/dm/pokeApiDm';
-import './components/ui/detailComponent/detailComponent';
-import './components/ui/formComponent/formComponent';
+import './pages/pokeList/pokeList-page';
+import './pages/pokeEvolution/pokeEvolution-page';

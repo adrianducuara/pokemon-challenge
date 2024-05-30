@@ -40,7 +40,7 @@ export class PokeListPage extends LitElement {
 
   get renderData() {
     return this.data.map(poke => html`
-        <a href='detail.html?name=${poke.name}'>
+        <a href='evolution.html?name=${poke.name}'>
           <card-component altText='Pokemon photo' imgUrl='/assets/img/bola-pokemon.png'>
             <p slot='name'>${poke.name}</p>
           </card-component>

@@ -60,4 +60,4 @@ export class PokeEditPage extends LitElement {
   }
 }
 
-window.customElements.define('pokedetail-page', PokeEditPage);
+window.customElements.define('pokeevolution-page', PokeEditPage);
