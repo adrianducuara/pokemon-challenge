@@ -8,16 +8,21 @@ Install dependencies:
 npm i
 ```
 
-## Dev Server
-
-To run the dev server and open the project in a new browser tab:
-
+Install json-server
 ```bash
-npm run serve
+npm install -g json-server
 ```
 
 ## Data server
 
 ```bash
 json-server -w data/pokemon.json -p 3002
+```
+
+## Dev Server
+
+To run the dev server and open the project in a new browser tab:
+
+```bash
+npm run serve
 ```
